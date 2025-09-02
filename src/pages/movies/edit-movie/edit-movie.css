@@ -1,0 +1,48 @@
+.form-container-dark {
+    background-color: #2d2d2d;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.form-container-dark h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+.info-group {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+.info-group strong {
+    display: block;
+    color: #b0b0b0;
+    margin-bottom: 5px;
+}
+.form-group-dark {
+    margin-top: 25px;
+}
+.form-group-dark label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b0b0b0;
+    font-weight: bold;
+}
+.form-group-dark select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #444;
+    color: #e0e0e0;
+    font-size: 1em;
+}
+.actions-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.actions-group .btn {
+    margin-bottom: 0;
+}
