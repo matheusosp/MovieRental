@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-// NOVO: Importar hooks do React-Redux para interagir com a store
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../../core/store/reducers/auth';
 
