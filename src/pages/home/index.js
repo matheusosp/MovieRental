@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./movies.css";
+import {Link} from "react-router-dom";
 
 const Alugueis = () => {
     const OMDb_API_KEY = '4dd7929';
@@ -123,6 +124,9 @@ const Alugueis = () => {
                                     </span>
                             </td>
                             <td>
+                                <Link to={`/alugueis/${rental.id}`}>
+                                    <button className="btn btn-secondary">Editar</button>
+                                </Link>
                                 <button className="btn btn-secondary" onClick={() => handleToggleStatus(rental.id)}>Alterar Status</button>
                                 <button className="btn btn-danger" onClick={() => handleDelete(rental.id)}>Excluir</button>
                             </td>
