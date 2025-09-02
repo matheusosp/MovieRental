@@ -72,6 +72,18 @@ export default function Aluguel() {
                     <span>{cliente ? cliente.nome : 'Cliente não encontrado'}</span>
                 </div>
                 <div className="info-group">
+                    <strong>ID do Cliente:</strong>
+                    <span>{aluguel.clienteId}</span>
+                </div>
+                <div className="info-group">
+                    <strong>ID do Filme (IMDb):</strong>
+                    <span>{aluguel.filme.imdbID}</span>
+                </div>
+                <div className="info-group">
+                    <strong>ID do aluguel:</strong>
+                    <span>{aluguel.id}</span>
+                </div>
+                <div className="info-group">
                     <strong>Filme:</strong>
                     <span>{aluguel.filme.Title} ({aluguel.filme.Year})</span>
                 </div>
