@@ -1,72 +1,94 @@
-# Getting Started with Create React App
+# Sistema de Gerenciamento de Locadora de Filmes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação web desenvolvida com React para gerenciar clientes e aluguéis de uma locadora de filmes. A aplicação conta com autenticação, rotas protegidas e operações de CRUD (Criar, Ler, Atualizar, Excluir) para clientes e aluguéis, utilizando o `LocalStorage` do navegador para persistência de dados e a API OMDb para busca de informações de filmes.
 
-Node version 20.0.0
+## Funcionalidades Principais
 
-## Available Scripts
+-   **Autenticação**:
+    -   Tela de login (`/login`) com um perfil de administrador estático.
+    -   Validação de formato de e-mail e comprimento mínimo de senha.
+    -   Redirecionamento para a página de clientes após o login bem-sucedido.
+    -   Funcionalidade de Logout para encerrar a sessão.
 
-In the project directory, you can run:
+-   **Gerenciamento de Estado com Redux**:
+    -   O estado de autenticação do usuário (se está logado ou não) é controlado globalmente pela biblioteca Redux.
+    -   Componentes como `Header` e `PrivateRoute` reagem em tempo real às mudanças no estado de autenticação.
+
+-   **Rotas Protegidas**:
+    -   Apenas usuários autenticados podem acessar as páginas de gerenciamento (`/clientes`, `/alugueis`, etc.).
+    -   Tentativas de acesso a rotas protegidas sem login redirecionam o usuário para a página de login.
+
+-   **CRUD de Clientes**:
+    -   Funcionalidades completas para listar, cadastrar, editar e excluir clientes.
+    -   Os dados dos clientes são inicializados a partir de um JSON estático e depois persistidos no `LocalStorage`.
+    -   Interface construída com componentes estilizados para formulários e tabelas.
+
+-   **CRUD de Aluguéis**:
+    -   Funcionalidades para listar, cadastrar, editar e excluir aluguéis.
+    -   **Integração com a API OMDb**: Permite buscar filmes em tempo real pelo título para associá-los a um aluguel.
+    -   Dropdown para selecionar um cliente (da lista do CRUD de Clientes) ao criar um novo aluguel.
+    -   Os dados dos aluguéis são salvos e lidos do `LocalStorage`.
+
+## Tecnologias Utilizadas
+
+-   **React**: Biblioteca principal para a construção da interface de usuário.
+-   **React Router (v5)**: Para gerenciamento de rotas e navegação na aplicação.
+-   **Redux**: Para gerenciamento de estado global, principalmente o estado de autenticação.
+-   **Redux Thunk**: Middleware para lidar com a lógica assíncrona nas actions do Redux.
+-   **OMDb API**: API externa para busca de dados e pôsteres de filmes.
+-   **LocalStorage**: Para persistência de dados no navegador.
+-   **CSS**: Estilização customizada para os componentes, com um tema escuro.
+
+---
+
+## Pré-requisitos
+
+Antes de começar, você precisará ter o seguinte instalado em sua máquina:
+-   [Node.js](https://nodejs.org/) (versão 20.0.0 ou superior)
+-   [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+
+## Instalação e Execução
+
+Siga os passos abaixo para executar o projeto localmente:
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/seu-usuario/nome-do-repositorio.git)
+    cd nome-do-repositorio
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+3.  **Execute a aplicação:**
+    ```bash
+    npm start
+    ```
+    A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Credenciais de Acesso (Admin)
+
+Para acessar a área administrativa, utilize as seguintes credenciais estáticas:
+
+-   **E-mail**: `userMaster@gmail.com`
+-   **Senha**: `123456`
+
+## Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Executa a aplicação em modo de desenvolvimento.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia o executor de testes no modo interativo.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Compila a aplicação para produção na pasta `build`.
